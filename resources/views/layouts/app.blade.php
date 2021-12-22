@@ -7,7 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Library Management') }}</title>
+
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -24,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <a class="site-logo" href="{{ route('home') }}"><img src="{{ asset('images/logo.png') }}" alt="Library Management"></a>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -52,7 +54,9 @@
                                 </li>
                             @endif
                         @else
+                        @if(Auth::user()->hasRole('Admin') == true)
                             <li class="nav-item"><a class="nav-link" href="{{ route('book_requisition') }}">Book Requisition</a></li>
+                        @endif
                             <li class="nav-item"><a class="nav-link" href="{{ route('authors.index') }}">Authors</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('categories.index') }}">Categories</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('books.index') }}">Books</a></li>
