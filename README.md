@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-# library_management
+# Library management
 Library management system
 
 <h2>Installation</h2>
@@ -42,3 +42,62 @@ Library management system
         </tr>
     </tbody>
 </table>
+
+<h2>API</h2>
+<pre>
+    <table>
+        <thead>
+            <tr>
+                <th>URL</th>
+                <th>HTTP method</th>
+                <th>form-data</th>
+                <th>header-info</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>api/register</td>
+                <td>POST</td>
+                <td>name, email, password, confirm-password</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>api/login</td>
+                <td>POST</td>
+                <td>email, password</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>api/books</td>
+                <td>GET</td>
+                <td></td>
+                <td>Authorization: Bearer 'login access token'</td>
+            </tr>
+            <tr>
+                <td>api/book-store</td>
+                <td>POST</td>
+                <td>category_id, author_id, title, description</td>
+                <td>Authorization: Bearer 'login access token'</td>
+            </tr>
+            <tr>
+                <td>book-update/{book}</td>
+                <td>POST</td>
+                <td>category_id, author_id, title, description</td>
+                <td>Authorization: Bearer 'login access token'</td>
+            </tr>
+            <tr>
+                <td>book/{id}</td>
+                <td>GET</td>
+                <td></td>
+                <td>Authorization: Bearer 'login access token'</td>
+            </tr>
+            <tr>
+                <td>book/{id}</td>
+                <td>DELETE</td>
+                <td></td>
+                <td>Authorization: Bearer 'login access token'</td>
+            </tr>
+        </tbody>
+    </table>
+</pre>
+
